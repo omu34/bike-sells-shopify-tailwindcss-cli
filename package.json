@@ -1,0 +1,23 @@
+{
+    "name": "bike-sells-myshopify-com",
+    "version": "1.0.0",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "concurrently \"shopify theme dev\" \"npx @tailwindcss/cli -i ./assets/tailwind-input.css -o ./assets/tailwind-output.css --watch\"",
+        "build": "npx @tailwindcss/cli -i ./assets/tailwind-input.css -o ./assets/tailwind-output.css",
+        "deploy": "shopify theme push --allow-live",
+        "deploy:production": "shopify theme push --allow-live --env production"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "description": "",
+    "dependencies": {
+        "@tailwindcss/cli": "^4.1.10",
+        "tailwindcss": "^4.1.10"
+    },
+    "devDependencies": {
+        "concurrently": "^9.1.2"
+    }
+}

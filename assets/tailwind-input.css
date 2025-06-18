@@ -1,0 +1,12 @@
+@import "tailwindcss";
+@font-face {
+    font-family: 'Bell MT';
+    src: url('/assets/BellMT.woff2') format('woff2'), url('/assets/BellMT.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+body {
+    font-family: 'Bell MT', serif;
+}
