@@ -109,7 +109,7 @@
     settings.media_shadow_opacity | divided_by: 100.0 }}; --media-shadow-horizontal-offset: {{
     settings.media_shadow_horizontal_offset }}px; --media-shadow-vertical-offset: {{
     settings.media_shadow_vertical_offset }}px; --media-shadow-blur-radius: {{ settings.media_shadow_blur }}px;
-    --media-shadow-visible: {% if settings.media_shadow_opacity> 0 %}1{% else %}0{% endif %};
+    --media-shadow-visible: {% if settings.media_shadow_opacity %}1{% else %}0{% endif %};
 
     --page-width: {{ settings.page_width | divided_by: 10 }}rem;
     --page-width-margin: {% if settings.page_width == '1600' %}2{% else %}0{% endif %}rem;
@@ -175,7 +175,7 @@
       --text-boxes-border-opacity: {{ settings.text_boxes_border_opacity | divided_by: 100.0 }};
       --text-boxes-border-width: {{ settings.text_boxes_border_thickness }}px; --text-boxes-radius: {{
       settings.text_boxes_radius }}px; --text-boxes-shadow-opacity: {{ settings.text_boxes_shadow_opacity | divided_by:
-      100.0 }}; --text-boxes-shadow-visible: {% if settings.text_boxes_shadow_opacity> 0 %}1{% else %}0{% endif %};
+      100.0 }}; --text-boxes-shadow-visible: {% if settings.text_boxes_shadow_opacity %}1{% else %}0{% endif %};
       --text-boxes-shadow-horizontal-offset: {{ settings.text_boxes_shadow_horizontal_offset }}px;
       --text-boxes-shadow-vertical-offset: {{ settings.text_boxes_shadow_vertical_offset }}px;
       --text-boxes-shadow-blur-radius: {{ settings.text_boxes_shadow_blur }}px;
@@ -253,7 +253,6 @@
 
 
 
-<<<<<<< Updated upstream
 <style>
   @font-face {
     font-family: 'Bell MT';
@@ -262,22 +261,11 @@
     font-style: normal;
     font-display: swap;
   }
-=======
-      <style>
-        @font-face {
-          font-family: 'Bell MT';
-          src: url('{{ "bell-mt.woff2" | asset_url }}') format('woff2'),
-          url('{{ "bell-mt.woff" | asset_url }}') format('woff');
-          font-weight: normal;
-          font-style: normal;
-          font-display: swap;
-        }
->>>>>>> Stashed changes
 
-        body {
-          font-family: 'Bell MT', serif;
-        }
-      </style>
+  body {
+    font-family: 'Bell MT', serif;
+  }
+</style>
 
 
 
@@ -408,4 +396,16 @@
   {%- endif -%}
 </body>
 
-</html>
+</html>{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% if settings.media_shadow_opacity> 0 %}"
+  to: "{% if settings.media_shadow_opacity %}"
+  position: 6564..6602
+- from: "{% if settings.text_boxes_shadow_opacity> 0 %}"
+  to: "{% if settings.text_boxes_shadow_opacity %}"
+  position: 11885..11928
+{%- endcomment -%}
